@@ -1,0 +1,30 @@
+{
+  "name": "whatsapp-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureweb/whatsapp-backend.git"
+  },
+  "keywords": [
+    "MongoDB",
+    "Expres",
+    "&",
+    "NodeJS"
+  ],
+  "author": "Cedric Milius",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cultureweb/whatsapp-backend/issues"
+  },
+  "homepage": "https://github.com/cultureweb/whatsapp-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.9"
+  }
+}
