@@ -6,5 +6,5 @@ const whatsappSchema = mongoose.Schema({
   timestamp: String,
   received: Boolean,
 });
-
-export default mongoose.model("messageContent", whatsappSchema);
+// Collection
+export default mongoose.model("messagecontents", whatsappSchema);
