@@ -15,7 +15,7 @@ const pusher = new Pusher({
   key: process.env.PUSHER_KEY || "mykey",
   secret: process.env.PUSHER_SECRET || "secret",
   cluster: "eu",
-  useTLS: true
+  useTLS: true,
 });
 
 // middleware
@@ -27,7 +27,7 @@ const connection_url = process.env.ATLAS_URI || "mongodb://localhost/test-db";
 mongoose.connect(connection_url, {
   useNewUrlParser: true,
   useCreateIndex: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
@@ -38,7 +38,7 @@ db.once("open", () => {
   const msgCollection = db.collection("messagecontents");
   const changeStream = msgCollection.watch();
 
-  changeStream.on("change", change => {
+  changeStream.on("change", (change) => {
     console.log("A Change occured", change);
 
     if (change && change.operationType === "insert") {
@@ -46,7 +46,9 @@ db.once("open", () => {
 
       pusher.trigger("messages", "inserted", {
         name: messageDetails.name,
-        message: messageDetails.message
+        message: messageDetails.message,
+        timestamp: messageDetails.timestamp,
+        received: messageDetails.received,
       });
     } else {
       console.log("error triggering Pusher");
